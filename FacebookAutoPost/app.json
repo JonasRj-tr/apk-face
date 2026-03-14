@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Facebook Auto Post",
+    "name": "FacebookAutoPost",
     "slug": "FacebookAutoPost",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,36 +11,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#1877f2"
     },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.facebookautopost.app"
-    },
     "android": {
-      "package": "com.facebookautopost.app",
       "adaptiveIcon": {
-        "backgroundColor": "#1877f2",
-        "foregroundImage": "./assets/android-icon-foreground.png"
+        "backgroundColor": "#1877f2"
       },
-      "permissions": [
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE",
-        "READ_MEDIA_IMAGES",
-        "READ_MEDIA_VIDEO",
-        "INTERNET"
-      ],
-      "predictiveBackGestureEnabled": false
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "package": "com.facebookautopost.app"
     },
     "plugins": [
-      [
-        "expo-image-picker",
-        {
-          "photosPermission": "O app precisa acessar suas fotos para postar imagens.",
-          "cameraPermission": "O app precisa acessar a câmera para tirar fotos."
-        }
-      ]
+      "expo-image-picker"
     ]
   }
 }
