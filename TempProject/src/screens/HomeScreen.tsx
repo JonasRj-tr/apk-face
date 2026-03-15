@@ -11,8 +11,9 @@ import {
   Image,
   Linking,
   LogBox,
+  PermissionsAndroid,
+  Platform,
 } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Automation, delay } from '../services/Automation';
 
@@ -106,22 +107,22 @@ export default function HomeScreen() {
   };
 
   const pickImage = async () => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (status !== 'granted') {
-      Alert.alert('Permissão negada', 'É preciso permissão para acessar as fotos.');
-      return;
-    }
-
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ['images'],
-      allowsEditing: true,
-      quality: 0.8,
-    });
-
-    if (!result.canceled && result.assets[0]) {
-      setPostConfig(prev => ({ ...prev, image: result.assets[0].uri }));
-      addLog('✅ Imagem selecionada');
-    }
+    // Versão simples - use URL de imagem manualmente
+    Alert.alert(
+      'Adicionar Imagem',
+      'Cole a URL da imagem que deseja usar:',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        { 
+          text: 'OK', 
+          onPress: () => {
+            // Por agora, vamos usar uma imagem placeholder
+            setPostConfig(prev => ({ ...prev, image: 'https://via.placeholder.com/300' }));
+            addLog('✅ Imagem adicionada (placeholder)');
+          }
+        }
+      ]
+    );
   };
 
   const toggleGroupSelection = (name: string) => {
