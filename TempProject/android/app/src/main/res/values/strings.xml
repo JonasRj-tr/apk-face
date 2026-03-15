@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FacebookAutoPost</string>
+    <string name="accessibility_service_description">Este serviço permite a automação de postagens no Facebook, permitindo navegar automaticamente por grupos e criar postagens.</string>
+</resources>
